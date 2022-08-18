@@ -18,9 +18,6 @@ class Modal {
         this.element = element;
         this.registerEvents();
       }
-
-    this.element = element;
-    this.registerEvents();
   }
 
   /**
@@ -29,11 +26,18 @@ class Modal {
    * (с помощью метода Modal.onClose)
    * */
   registerEvents() {
+    /*код с консультации
     this.element.querySelectorAll('[data-dismiss="modal"]').forEach(btn => {
       btn.onlick = e => {
         this.onClose(e);
       }
     });
+    */
+
+    const btnClose = this.element.querySelectorAll('button[data-dismiss="modal"]');
+    btnClose.forEach(elem => elem.addEventListener('click', (e) => {
+        this.onClose(e);
+    }));
   }
 
   /**

@@ -1,4 +1,4 @@
-const { response } = require("express");
+// const { response } = require("express");
 
 /**
  * Класс User управляет авторизацией, выходом и
@@ -40,19 +40,19 @@ class User {
    * Получает информацию о текущем
    * авторизованном пользователе.
    * */
-  static fetch(callback) {
-    createRequest({
+   static fetch(callback = f => f) {
+    return createRequest({
       url: this.URL + '/current',
       method: 'GET',
       callback: (err, response) => {
-        if (response && response.user) {
-          this.setCurrent(response.user)
-        } else {
-          this.unsetCurrent();
-        }
-        callback(err, response);
+          if (err === null && response.success) {
+              this.setCurrent(response.user);
+          } else {
+              this.unsetCurrent();
+          }
+          callback(err, response);
       }
-    }); 
+    });
   }
 
   /**
@@ -61,13 +61,13 @@ class User {
    * сохранить пользователя через метод
    * User.setCurrent.
    * */
-  static login(data, callback) {
+   static login( data, callback = f => f) {
     createRequest({
       url: this.URL + '/login',
       method: 'POST',
       data,
       callback: (err, response) => {
-        if (response && response.user) {
+        if (err === null && response.success) {
           this.setCurrent(response.user);
         }
         callback(err, response);
@@ -81,34 +81,46 @@ class User {
    * сохранить пользователя через метод
    * User.setCurrent.
    * */
-  static register(data, callback) {
-    createRequest({
+   static register( data, callback = f => f) {
+    return createRequest({
       url: this.URL + '/register',
-      method: 'POST',
       data,
+      method: 'POST',
       callback: (err, response) => {
-        if (response && response.user) {
-          this.setCurrent(response.user);
-        }
-        callback(err, response);
+          if (err === null && response.success) {
+              this.setCurrent(response.user);
+          }
+          callback(err, response);
       }
     });
-
   }
 
   /**
    * Производит выход из приложения. После успешного
    * выхода необходимо вызвать метод User.unsetCurrent
    * */
-  static logout(callback) {
-    createRequest({
+  // static logout( callback ) {
+  //   createRequest({
+  //     url: this.URL + '/logout',
+  //     method: 'POST',
+  //     callback: (err, response) => {
+  //       if (response && response.user) {
+  //         this.unsetCurrent(response.user);
+  //       }
+  //       callback( err, response );
+  //     }
+  //   });
+
+  static logout( data, callback = f => f) {
+    return createRequest({
       url: this.URL + '/logout',
+      data,
       method: 'POST',
       callback: (err, response) => {
-        if (response && response.user) {
-          this.unsetCurrent(response.user);
-        }
-        callback(err, response);
+          if (err === null && response.success) {
+              this.unsetCurrent(response.user);
+          }
+          callback(err, response);
       }
     });
   }

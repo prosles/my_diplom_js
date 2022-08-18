@@ -52,7 +52,7 @@ const createRequest = (options = {}) => {
 const createRequest = (options = {}) => {
   let xhr = new XMLHttpRequest();
   xhr.responseType = 'json';
-  xhr.withCredentials = true; 
+//   xhr.withCredentials = true; 
   const formData = new FormData();
          
   if (options.method === 'GET') {
