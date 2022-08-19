@@ -11,7 +11,6 @@ class User {
    * локальном хранилище.
    * */
   static setCurrent(user) {
-    // localStorage.setItem('user', JSON.stringify(user)); как на консультации
     localStorage.user = JSON.stringify(user);
   }
 
@@ -28,11 +27,6 @@ class User {
    * из локального хранилища
    * */
   static current() {
-    /* код с консультации
-    const user = localStorage.user;
-    return user ? JSON.parse(user) : user;
-    */
-
     return JSON.parse(localStorage.getItem('user'));
   }
 
@@ -99,18 +93,6 @@ class User {
    * Производит выход из приложения. После успешного
    * выхода необходимо вызвать метод User.unsetCurrent
    * */
-  // static logout( callback ) {
-  //   createRequest({
-  //     url: this.URL + '/logout',
-  //     method: 'POST',
-  //     callback: (err, response) => {
-  //       if (response && response.user) {
-  //         this.unsetCurrent(response.user);
-  //       }
-  //       callback( err, response );
-  //     }
-  //   });
-
   static logout( data, callback = f => f) {
     return createRequest({
       url: this.URL + '/logout',

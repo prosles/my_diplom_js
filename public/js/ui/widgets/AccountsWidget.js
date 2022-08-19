@@ -53,14 +53,7 @@ class AccountsWidget {
    * метода renderItem()
    * */
   update() {
-   /*код с консультации
-    Account.list(null, (err, resp) => {
-      if (resp & resp.success) {
-        this.clear();
-        resp.data.forEach(a => this.renderItem(a))
-      }
-    });
-    */
+   
     if (!User.current()) {
       return;
     }
@@ -81,7 +74,6 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-    // this.element.querySelectorAll('.account').forEarch(e => e.remove()); код с консультации
     [...this.element.querySelectorAll('.account')].forEach(item => item.remove());
   }
 
@@ -121,7 +113,6 @@ class AccountsWidget {
    * и добавляет его внутрь элемента виджета
    * */
   renderItem(data){
-    // this.element.inserAdjacentHTML('beforeend', this.getAccountHTML(data)); код с консультации
 
     data.forEach(item => {
       const { name, id } = item,

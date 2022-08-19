@@ -39,11 +39,6 @@ class AsyncForm {
    * }
    * */
   getData() {
-    // код с консультации
-    const formData = new FormData(this.element);
-    return Object.fromEntries(formData.entries());
-   
-    /*
     const formData = new FormData (this.element);
     const keyValue = {};
     for (let item of formData.entries()) {
@@ -52,7 +47,7 @@ class AsyncForm {
       keyValue[key] = value;
     }
     return keyValue
-    */
+    
   }
 
   onSubmit(options){

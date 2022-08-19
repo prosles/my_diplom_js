@@ -17,6 +17,18 @@
       "email": "4@5",
       "password": "12",
       "id": "6rqgr39r8l6yo04jj"
+    },
+    {
+      "name": "КАТЯ",
+      "email": "ek@mail",
+      "password": "ek",
+      "id": "6rqgr3gxcl7048k1y"
+    },
+    {
+      "name": "аааррр",
+      "email": "4@ru",
+      "password": "5",
+      "id": "6rqgr3jpol704xq48"
     }
   ],
   "accounts": [
@@ -29,6 +41,21 @@
       "name": "мтмтт",
       "user_id": "6rqgr3dsol6y26f8s",
       "id": "6rqgr39r8l6ynzmlz"
+    },
+    {
+      "name": "впвпв",
+      "user_id": "6rqgr39r8l6yo04jj",
+      "id": "6rqgr3bhgl703g1ur"
+    },
+    {
+      "name": "ЗП",
+      "user_id": "6rqgr3gxcl7048k1y",
+      "id": "6rqgr3gxcl70490kk"
+    },
+    {
+      "name": "банк",
+      "user_id": "6rqgr3jpol704xq48",
+      "id": "6rqgr3jpol704y0an"
     }
   ],
   "transactions": [

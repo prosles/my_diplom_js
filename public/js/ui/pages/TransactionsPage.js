@@ -16,7 +16,6 @@ class TransactionsPage {
     }
     this.element = element;
     this.registerEvents();
-    // this.update();
   }
 
   /**
@@ -33,11 +32,6 @@ class TransactionsPage {
    * TransactionsPage.removeAccount соответственно
    * */
   registerEvents() {
-    /*код с консультации
-    this.element.querySelector('remove-account').onclick = e => {
-      this.removeAccount();
-    }
-    */
     this.element.onclick = (e) => {
       e.preventDefault();
       if (e.target.closest('.remove-account')) {
@@ -60,15 +54,6 @@ class TransactionsPage {
    * для обновления приложения
    * */
   removeAccount() {
-    /* код сконсультации 
-    Account.remove({ id: 1}, (err, resp) => {
-      if(resp && resp.success) {
-        App.updateWidgets();
-        App.updateForms();
-        this.clear();
-      }
-    });
-    */
     if (this.lastOptions) {
       const id = this.lastOptions.account_id;
       if (confirm('Вы действительно хотите удалить счёт?')) {
@@ -107,13 +92,6 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render(options){
-   /* код с консультации
-    Account.get(options.account_id, (err, resp) => {
-      if (resp) {
-        this.renderTitle(resp.data.name);
-      }
-    });
-    */
     this.lastOptions = options;
     if (!options) {
       return
@@ -146,7 +124,6 @@ class TransactionsPage {
    * Устанавливает заголовок в элемент .content-title
    * */
   renderTitle(name){
-    //this.element.querySelector('.content-title').innerText = name; код с консультации
     this.element.querySelector('.content-title').textContent = name;
   }
 

@@ -13,7 +13,7 @@ class LoginForm extends AsyncForm {
     User.login(data, (err, response) => {
       if (err === null && response.success) {
         App.setState('user-logged'); 
-        App.getModal('login').close(); //закрытие окна
+        App.getModal('login').close(); 
         this.element.reset();
       } 
     });
